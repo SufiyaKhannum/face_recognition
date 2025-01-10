@@ -1,74 +1,120 @@
-# face_recognition
-from keras.models import load_model  # TensorFlow is required for Keras to work
-import cv2  # Install opencv-python
-import numpy as np
-import os
+ABOUT THE PROJECT!
 
-# Disable scientific notation for clarity
-np.set_printoptions(suppress=True)
+This is a face recognition code which uses a pre-trained Keras model to perform real-time image classification from a live video feed. It captures frames from the camera, resizes and normalizes them, and then predicts the class and confidence score for each frame. The results are displayed on the video feed with the predicted class and score overlayed. The program runs continuously until the user presses 'q' to quit.
 
-# Verify model and labels file paths
-model_path = r"C:\Users\sufiya khannum\PycharmProjects\face_recognition\keras_model.h5"
-labels_path = "labels.txt"
 
-if not os.path.exists(model_path):
-    print("Error: keras_model.h5 not found.")
-    exit(1)
+INSTALLATION:
 
-if not os.path.exists(labels_path):
-    print("Error: labels.txt not found.")
-    exit(1)
+python 3.9
+PyCharm Community Edition 
 
-# Load the model
-model = load_model(model_path, compile=False)
 
-# Load the labels
-class_names = [line.strip() for line in open(labels_path, "r").readlines()]
+FEATURES
+Highlights of the project:
 
-# Open video source (0 for default camera, or specify file path for video file)
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+Live video feed with predictions displayed in real-time
+Confidence scores for each prediction
 
-# Check if the video source is opened successfully
-if not cap.isOpened():
-    print("Error: Unable to access the camera.")
-    exit(1)
 
-print("Press 'q' to exit.")
+REQUIREMENTS:
 
-while True:
-    ret, frame = cap.read()  # Capture a frame
-    if not ret or frame is None:
-        print("Error: Failed to capture a frame. Exiting...")
-        break
+PYTHON 3.9(interpreter)
 
-    # Resize the frame
-    try:
-        resized_frame = cv2.resize(frame, (224, 224), interpolation=cv2.INTER_AREA)
-    except cv2.error as e:
-        print(f"OpenCV error during resizing: {e}")
-        break
+The required dependencies and libraries:(THIS HAS TO BE DONE IN THE TERMINAL OF PYCHARM)
 
-    # Normalize the image for the model
-    image = np.array(resized_frame, dtype=np.float32)
-    image = np.expand_dims(image, axis=0)  # Add batch dimension
-    image = image / 255.0  # Normalize pixel values to [0, 1]
+1.Install TensorFlow 2.10.0:
+pip install tensorflow==2.10.0
 
-    # Predict using the model
-    prediction = model.predict(image)
-    index = np.argmax(prediction)
-    class_name = class_names[index]
-    confidence_score = prediction[0][index]
+2.Install Numpy (compatible version):
+pip install numpy==1.21.6
+set CUDA_VISIBLE_DEVICES=-1
 
-    # Print prediction and confidence score
-    print(f"Class: {class_name} | Confidence Score: {np.round(confidence_score * 100, 2)}%")
+3.Install OpenCV with  GUI suport
+pip install opencv-python==4.5.5.64
 
-    # Display the frame
-    cv2.imshow("Live Feed", frame)
 
-    # Break the loop on pressing 'q'
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+5. FILE STRUCTURE:
+   
+Purpose of key files:
 
-# Release resources
-cap.release()
-cv2.destroyAllWindows()
+keras_model.h5: Pre-trained Keras model file.
+
+labels.txt: Text file with class names for the model.
+
+face_recognition.py: Main Python script for running the program.
+
+
+7. HOW IT WORKS:
+
+Workflow:
+
+The script loads the model and labels.
+
+Opens the default camera and captures video frames.
+
+Each frame is resized and normalized before being passed to the model for prediction.
+
+The predicted class and confidence score are displayed on the video feed.
+
+
+7.CUSTOMIZATION 
+
+How users can adapt the code:
+
+Replace keras_model.h5 with a custom model trained for their use case.
+
+Update labels.txt with corresponding class names.
+
+Change the video source (e.g., use a video file instead of a camera).
+
+
+8. TROUBLESHOOTING
+   
+Common issues and their solutions:
+
+Camera Not Accessible: Ensure no other application is using the camera.
+
+Model/Labels Not Found: Verify the paths to keras_model.h5 and labels.txt.
+
+OpenCV Errors: Check if the camera is functioning properly.
+
+Easy-to-adapt code for custom models and dataset
+
+Steps To Be Followed:
+
+1. Search for google teachable machine
+   
+![Screenshot 2025-01-09 234718](https://github.com/user-attachments/assets/fd52d579-784f-4edc-8162-0b283f094776)
+
+
+3. Select the link
+   
+![Screenshot 2025-01-09 234841](https://github.com/user-attachments/assets/73582f29-31b2-4d8b-8eb2-cec3bfb3b71e)
+
+
+5. Select get started
+   
+![Screenshot 2025-01-09 234913](https://github.com/user-attachments/assets/0503fcdb-17cb-4951-bc81-cfbb1cd4f514)
+
+
+7. Select standard image project
+   
+![Screenshot 2025-01-09 234950](https://github.com/user-attachments/assets/dbd37fe7-c9bf-40d8-9f16-2488d0420ae3)
+
+
+9. Select standard image model
+    
+![Screenshot 2025-01-09 235016](https://github.com/user-attachments/assets/2c5b6b3d-30cb-47c8-a57e-365bed280ee5)
+
+
+11. Add class name
+    
+![Screenshot 2025-01-10 114128](https://github.com/user-attachments/assets/422d02e7-01a4-493a-8b1d-8298ab20cf86)
+
+
+13. Select tensorflow---OpenCVKeras---Download my model
+    
+![Screenshot 2025-01-09 235553](https://github.com/user-attachments/assets/d5c01ea0-82db-4756-ae5b-7cca6e2d9ce7)
+
+
+
