@@ -1,22 +1,22 @@
-ABOUT THE PROJECT!
+1. ABOUT THE PROJECT!
 
 This is a face recognition code which uses a pre-trained Keras model to perform real-time image classification from a live video feed. It captures frames from the camera, resizes and normalizes them, and then predicts the class and confidence score for each frame. The results are displayed on the video feed with the predicted class and score overlayed. The program runs continuously until the user presses 'q' to quit.
 
 
-INSTALLATION:
+2. INSTALLATION:
 
 python 3.9
 PyCharm Community Edition 
 
 
-FEATURES
+3. FEATURES
 Highlights of the project:
 
 Live video feed with predictions displayed in real-time
 Confidence scores for each prediction
 
 
-REQUIREMENTS:
+4. REQUIREMENTS:
 
 PYTHON 3.9(interpreter)
 
@@ -44,7 +44,7 @@ labels.txt: Text file with class names for the model.
 face_recognition.py: Main Python script for running the program.
 
 
-7. HOW IT WORKS:
+6. HOW IT WORKS:
 
 Workflow:
 
@@ -87,32 +87,32 @@ Steps To Be Followed:
 ![Screenshot 2025-01-09 234718](https://github.com/user-attachments/assets/fd52d579-784f-4edc-8162-0b283f094776)
 
 
-3. Select the link
+2. Select the link
    
 ![Screenshot 2025-01-09 234841](https://github.com/user-attachments/assets/73582f29-31b2-4d8b-8eb2-cec3bfb3b71e)
 
 
-5. Select get started
+3. Select get started
    
 ![Screenshot 2025-01-09 234913](https://github.com/user-attachments/assets/0503fcdb-17cb-4951-bc81-cfbb1cd4f514)
 
 
-7. Select standard image project
+4. Select standard image project
    
 ![Screenshot 2025-01-09 234950](https://github.com/user-attachments/assets/dbd37fe7-c9bf-40d8-9f16-2488d0420ae3)
 
 
-9. Select standard image model
+5. Select standard image model
     
 ![Screenshot 2025-01-09 235016](https://github.com/user-attachments/assets/2c5b6b3d-30cb-47c8-a57e-365bed280ee5)
 
 
-11. Add class name
+6. Add class name
     
 ![Screenshot 2025-01-10 114128](https://github.com/user-attachments/assets/422d02e7-01a4-493a-8b1d-8298ab20cf86)
 
 
-13. Select tensorflow---OpenCVKeras---Download my model
+7. Select tensorflow---OpenCVKeras---Download my model
     
 ![Screenshot 2025-01-09 235553](https://github.com/user-attachments/assets/d5c01ea0-82db-4756-ae5b-7cca6e2d9ce7)
 
